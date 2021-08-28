@@ -26,3 +26,10 @@ NEXTタイムの選択専用サイトなのにゃ！！
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 ```
+
+### ビルド方法
+
+```shell
+mvn package
+```
+
