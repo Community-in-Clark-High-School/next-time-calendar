@@ -38,3 +38,38 @@ mvn package
   - 授業の参加人数の制限機能
   - ユーザーのグループ分け(複数グループ所属可能)
   - 授業ごとに参加できるグループ制限
+
+## WebAPI仕様
+## ⚠️超絶重要☆彡
+```diff
+- 現在、API仕様の策定のみで、実際に使うことはできません。  
+- また予告等なしに仕様を変更する可能性があります。
+```
+***
+## アクセストークンの取得
+```
+POST https://sub.shachiku.tk/nexttime/gettoken
+```
+### ペイロード
+```
+id=<user id>&
+pass=<password>&
+refresh=<refresh token>
+```
+  - `user id`ユーザーID
+  - `password`パスワード
+  - `refresh token`リフレッシュトークン
+  - (`user id`と`password`)か`refresh token`のどちらかを入力してください。
+### 応答例
+#### 成功時
+```json
+{"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a", "expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
+```
+  - `access_token`アクセストークン
+  - `refresh_token`リフレッシュトークン
+  - `expiration`トークンの有効期限(UNIX時間)
+#### 失敗時
+```json
+{"success":false,"cause":"IDかパスワードが間違っています。"}
+```
+  - `cause`エラーメッセージ
