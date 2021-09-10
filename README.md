@@ -65,11 +65,11 @@ refresh=<refresh token>
   - `user id`: ユーザーID
   - `password`: パスワード
   - `refresh token`: リフレッシュトークン
-  - `user id`と`password`か、`refresh token`の少なくともどちらかを入力してください。
+  - `user id`と`password`か、`refresh token`のどちらかを入力してください。
 ### 応答例
 #### 成功時
 ```json
-{"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a", "expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
+{"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a","expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
 ```
   - `access_token`: アクセストークン
   - `refresh_token`: リフレッシュトークン
