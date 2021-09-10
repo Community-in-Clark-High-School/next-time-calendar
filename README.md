@@ -43,7 +43,7 @@ mvn package
   - 授業の参加人数の制限機能
   - ユーザーのグループ分け(複数グループ所属可能)
   - 授業ごとに参加できるグループ制限
-
+***
 ## WebAPI仕様
 ### ⚠️超絶重要☆彡
 ```diff
@@ -54,7 +54,7 @@ mvn package
 
 ## アクセストークンの取得
 ```
-POST https://sub.shachiku.tk/nexttime/gettoken
+POST https://sub.shachiku.tk/nexttime/issuetoken
 ```
 ### ペイロード
 ```
@@ -62,20 +62,20 @@ id=<user id>&
 pass=<password>&
 refresh=<refresh token>
 ```
-  - `user id`ユーザーID
-  - `password`パスワード
-  - `refresh token`リフレッシュトークン
-  - (`user id`と`password`)か`refresh token`のどちらかを入力してください。
+  - `user id`: ユーザーID
+  - `password`: パスワード
+  - `refresh token`: リフレッシュトークン
+  - `user id`と`password`か、`refresh token`の少なくともどちらかを入力してください。
 ### 応答例
 #### 成功時
 ```json
 {"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a", "expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
 ```
-  - `access_token`アクセストークン
-  - `refresh_token`リフレッシュトークン
-  - `expiration`トークンの有効期限(UNIX時間)
+  - `access_token`: アクセストークン
+  - `refresh_token`: リフレッシュトークン
+  - `expiration`: 各トークンの有効期限(UNIX時間)
 #### 失敗時
 ```json
 {"success":false,"cause":"IDかパスワードが間違っています。"}
 ```
-  - `cause`エラーメッセージ
+  - `cause`: エラーメッセージ
