@@ -47,12 +47,12 @@ mvn package
 ## WebAPI仕様
 ### ⚠️超絶重要☆彡
 ```diff
-- 現在、API仕様の策定のみで、実際に使うことはできません。  
-- また予告等なしに仕様を変更する可能性があります。
+- 現在、一部のAPI仕様は、策定のみ若しくは開発中で、動作は保証されていません。
+- また予告等なしに仕様を変更する可能性があります 
 ```
 ***
 
-## アクセストークンの取得
+## アクセストークンの取得@開発中
 ```
 POST https://sub.shachiku.tk/nexttime/issuetoken
 ```
@@ -78,7 +78,7 @@ content-type: application/json
 ```
 #### 成功例
 ```json
-{"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a","expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
+{"access_token":{"value":"be52ffaf-fbd5-4030-8994-55090ec9a67d","expiration":1631402894},"refresh_token":{"value":"894a5dde-4e5d-485e-8a0d-91b0cc6c24fe","expiration":1633908494},"success":true}
 ```
   - `access_token`: アクセストークン
   - `refresh_token`: リフレッシュトークン
