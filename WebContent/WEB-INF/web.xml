@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
   version="2.4">
 
@@ -10,9 +10,19 @@
     <jsp-file>/login.jsp</jsp-file>
   </servlet>
 
+  <servlet>
+  	<servlet-name>issuetoken</servlet-name>
+  	<servlet-class>tk.shachiku.openntc.servlet.IssueToken</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>login</servlet-name>
     <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>issuetoken</servlet-name>
+    <url-pattern>/issuetoken</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
