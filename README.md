@@ -56,7 +56,12 @@ mvn package
 ```
 POST https://sub.shachiku.tk/nexttime/issuetoken
 ```
-### ペイロード
+### リクエスト
+#### ヘッダー
+```
+content-type: application/x-www-form-urlencoded
+```
+#### ペイロード
 ```
 id=<user id>&
 pass=<password>&
@@ -66,15 +71,19 @@ refresh=<refresh token>
   - `password`: パスワード
   - `refresh token`: リフレッシュトークン
   - `user id`と`password`か、`refresh token`のどちらかを入力してください。
-### 応答例
-#### 成功時
+### レスポンス
+#### ヘッダー
+```
+content-type: application/json
+```
+#### 成功例
 ```json
 {"success":true,"access_token":{"value":"4f85aadd-a6ac-62d0-5d16-56c5249d683a","expiration":1630785923},"refresh_token":{"value":"3387d934-37dc-737c-c9b1-d6df25a0f0af","expiration":1638648323}}
 ```
   - `access_token`: アクセストークン
   - `refresh_token`: リフレッシュトークン
   - `expiration`: 各トークンの有効期限(UNIX時間)
-#### 失敗時
+#### 失敗例
 ```json
 {"success":false,"cause":"IDかパスワードが間違っています。"}
 ```
