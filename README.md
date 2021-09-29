@@ -58,6 +58,8 @@ mvn package
 ```
 POST https://sub.shachiku.tk/nexttime/issuetoken
 ```
+  - アクセストークンをIDとパス、もしくはリフレッシュトークンをもとに新たに生成します。
+  - リフレッシュトークンは使用後、削除されます。
 ### リクエスト
 #### ヘッダー
 ```
@@ -124,6 +126,7 @@ content-type: application/json
 ```
 POST https://sub.shachiku.tk/nexttime/checktoken
 ```
+  - トークンが有効かチェックします。トークンが存在し、かつ有効期限内の場合有効です。
 ### リクエスト
 #### ヘッダー
 ```
