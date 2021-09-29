@@ -6,6 +6,7 @@ NEXTタイムの選択専用サイトなのにゃ！！
   - [WebAPI仕様](#WebAPI仕様)
     - [アクセストークンの取得](#アクセストークンの取得)
     - [トークンの削除](#トークンの削除)
+    - [トークンのチェック](#トークンのチェック)
   
 ## ( ..)φメモメモ
 ### ざっくりとした各ディレクトリの説明
@@ -115,7 +116,37 @@ content-type: application/json
 {"success":true,"acc_success":true,"ref_success":true}
 ```
 ```json
-{"success":true,"acc_success":false,"ref_success":true}
+{"success":true,"acc_success":false,"ref_success":false}
 ```
   - `acc_success`: アクセストークンを削除した場合true
   - `ref_success`: リフレッシュトークンを削除した場合true
+## トークンのチェック
+```
+POST https://sub.shachiku.tk/nexttime/checktoken
+```
+### リクエスト
+#### ヘッダー
+```
+content-type: application/x-www-form-urlencoded
+```
+#### ペイロード
+```
+access=<access token>&
+refresh=<refresh token>
+```
+  - `access token`: アクセストークン(任意)
+  - `refresh token`: リフレッシュトークン(任意)
+### レスポンス
+#### ヘッダー
+```
+content-type: application/json
+```
+#### 成功例
+```json
+{"success":true,"acc_valid":true,"ref_valid":true}
+```
+```json
+{"success":true,"acc_valid":false,"ref_valid":false}
+```
+  - `acc_valid`: アクセストークンが有効な場合true
+  - `ref_valid`: リフレッシュトークンが有効な場合true
