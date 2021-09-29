@@ -4,7 +4,8 @@ NEXTタイムの選択専用サイトなのにゃ！！
   - [ビルド方法](#ビルド方法)
   - [新たに欲しい機能](#新たに欲しい機能)
   - [WebAPI仕様](#WebAPI仕様)
-    - [アクセストークンの取得@開発中](#アクセストークンの取得開発中)
+    - [アクセストークンの取得](#アクセストークンの取得)
+    - [トークンの削除](#トークンの削除)
   
 ## ( ..)φメモメモ
 ### ざっくりとした各ディレクトリの説明
@@ -52,7 +53,7 @@ mvn package
 ```
 ***
 
-## アクセストークンの取得@開発中
+## アクセストークンの取得
 ```
 POST https://sub.shachiku.tk/nexttime/issuetoken
 ```
@@ -88,3 +89,33 @@ content-type: application/json
 {"success":false,"cause":"IDかパスワードが間違っています。"}
 ```
   - `cause`: エラーメッセージ
+## トークンの削除
+```
+POST https://sub.shachiku.tk/nexttime/deletetoken
+```
+### リクエスト
+#### ヘッダー
+```
+content-type: application/x-www-form-urlencoded
+```
+#### ペイロード
+```
+access=<access token>&
+refresh=<refresh token>
+```
+  - `access token`: アクセストークン(任意)
+  - `refresh token`: リフレッシュトークン(任意)
+### レスポンス
+#### ヘッダー
+```
+content-type: application/json
+```
+#### 成功例
+```json
+{"success":true,"acc_success":true,"ref_success":true}
+```
+```json
+{"success":true,"acc_success":false,"ref_success":true}
+```
+  - `acc_success`: アクセストークンを削除した場合true
+  - `ref_success`: リフレッシュトークンを削除した場合true
